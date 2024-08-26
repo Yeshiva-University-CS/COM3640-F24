@@ -1,0 +1,84 @@
+{
+    "Currency": {
+        "name": "EUR",
+        "description": "The official currency of the Eurozone.",
+        "symbol": "€",
+        "denominations": [
+            {
+                "name": "Five Hundred Euro Note",
+                "plural": "Five Hundred Euro Notes",
+                "value": 500.00
+            },
+            {
+                "name": "Two Hundred Euro Note",
+                "plural": "Two Hundred Euro Notes",
+                "value": 200.00
+            },
+            {
+                "name": "One Hundred Euro Note",
+                "plural": "One Hundred Euro Notes",
+                "value": 100.00
+            },
+            {
+                "name": "Fifty Euro Note",
+                "plural": "Fifty Euro Notes",
+                "value": 50.00
+            },
+            {
+                "name": "Twenty Euro Note",
+                "plural": "Twenty Euro Notes",
+                "value": 20.00
+            },
+            {
+                "name": "Ten Euro Note",
+                "plural": "Ten Euro Notes",
+                "value": 10.00
+            },
+            {
+                "name": "Five Euro Note",
+                "plural": "Five Euro Notes",
+                "value": 5.00
+            },
+            {
+                "name": "Two Euro Coin",
+                "plural": "Two Euro Coins",
+                "value": 2.00
+            },
+            {
+                "name": "One Euro Coin",
+                "plural": "One Euro Coins",
+                "value": 1.00
+            },
+            {
+                "name": "Fifty Cent Coin",
+                "plural": "Fifty Cent Coins",
+                "value": 0.50
+            },
+            {
+                "name": "Twenty Cent Coin",
+                "plural": "Twenty Cent Coins",
+                "value": 0.20
+            },
+            {
+                "name": "Ten Cent Coin",
+                "plural": "Ten Cent Coins",
+                "value": 0.10
+            },
+            {
+                "name": "Five Cent Coin",
+                "plural": "Five Cent Coins",
+                "value": 0.05
+            },
+            {
+                "name": "Two Cent Coin",
+                "plural": "Two Cent Coins",
+                "value": 0.02
+            },
+            {
+                "name": "One Cent Coin",
+                "plural": "One Cent Coins",
+                "value": 0.01
+            }
+        ]
+    }
+}

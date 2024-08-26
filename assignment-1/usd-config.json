@@ -1,0 +1,59 @@
+{
+    "Currency": {
+        "name": "USD",
+        "description": "The official currency of the United States of America.",
+        "symbol": "$",
+        "denominations": [
+            {
+                "name": "One Hundred Dollar Bill",
+                "plural": "One Hundred Dollar Bills",
+                "value": 100.00
+            },
+            {
+                "name": "Fifty Dollar Bill",
+                "plural": "Fifty Dollar Bills",
+                "value": 50.00
+            },
+            {
+                "name": "Twenty Dollar Bill",
+                "plural": "Twenty Dollar Bills",
+                "value": 20.00
+            },
+            {
+                "name": "Ten Dollar Bill",
+                "plural": "Ten Dollar Bills",
+                "value": 10.00
+            },
+            {
+                "name": "Five Dollar Bill",
+                "plural": "Five Dollar Bills",
+                "value": 5.00
+            },
+            {
+                "name": "One Dollar Bill",
+                "plural": "One Dollar Bills",
+                "value": 1.00
+            },
+            {
+                "name": "Quarter",
+                "plural": "Quarters",
+                "value": 0.25
+            },
+            {
+                "name": "Dime",
+                "plural": "Dimes",
+                "value": 0.10
+            },
+            {
+                "name": "Nickel",
+                "plural": "Nickels",
+                "value": 0.05
+            },
+            {
+                "name": "Penny",
+                "plural": "Pennies",
+                "value": 0.01
+            }
+        ]
+    }
+}
