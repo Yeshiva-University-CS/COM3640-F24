@@ -44,7 +44,7 @@ public class App {
 
         // Visit and Print
         logger.info("\nVisitation:");
-        var visitor = new VisitAndPrint();
+        var visitor = new VisitAndPrint(false);
         visitor.visit(tree);
 
         // Execution

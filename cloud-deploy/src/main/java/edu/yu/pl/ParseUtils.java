@@ -2,7 +2,7 @@ package edu.yu.pl;
 
 public class ParseUtils {
 
-    public static String extractStringLiteral(String input) {
+    public static String extractString(String input) {
         if (input == null) {
             return null;
         }
