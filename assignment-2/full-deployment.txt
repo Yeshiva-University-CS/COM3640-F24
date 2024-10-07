@@ -1,0 +1,133 @@
+# Define network
+network {
+    cidr_block = "10.0.0.0/16"
+    subnet "public" {
+        cidr_block = "10.0.1.0/24"
+    }
+    subnet "private" {
+        cidr_block = "10.0.2.0/24"
+    }
+}
+
+# Define resources
+server "server1" {
+    instance_type = "t2.micro"
+    region = "us-east-1"
+    image = "t2.micro:latest"
+    attach = "private"
+}
+
+server "server2" {
+    instance_type = "t2.micro"
+    region = "us-east-1"
+    image = "t2.micro:latest"
+    attach = "private"
+}
+
+server "server3" {
+    instance_type = "t2.micro"
+    region = "us-east-1"
+    image = "t2.micro:latest"
+    attach = "private"
+}
+
+database "db" {
+    type = "postgres"
+    version = "12"
+    shards = 3
+    region = "us-east-1"
+    image = "postgres:12"
+    attach = "private"
+}
+
+cache "redis-cache" {
+    type = "redis"
+    nodes = 3
+    region = "us-east-1"
+    image = "redis:latest"
+    attach = "private"
+}
+
+load-balancer "lb1" {
+    type = "application"
+    listeners = ["HTTP", "HTTPS"]
+    region = "us-east-1"
+    image = "application:latest"
+    attach = "public"
+}
+
+# Create containers from resources
+container "container1" {
+    resource = "server1"
+    ports = [80, 443]
+    environment = {
+        "ENV" = "production",
+        "DEBUG" = "false"
+    }
+}
+
+container "container2" {
+    resource = "server2"
+    ports = [80, 443]
+    environment = {
+        "ENV" = "production",
+        "DEBUG" = "false"
+    }
+}
+
+container "container3" {
+    resource = "server3"
+    ports = [80, 443]
+    environment = {
+        "ENV" = "production",
+        "DEBUG" = "false"
+    }
+}
+
+container "container4" {
+    resource = "db"
+    ports = [5432]
+    environment = {
+        "POSTGRES_USER" = "admin"
+        "POSTGRES_PASSWORD" = "secret"
+    }
+}
+
+container "container5" {
+    resource = "redis-cache"
+    ports = [6379]
+    environment = {
+        "CACHE_SIZE" = "1024"
+    }
+}
+
+container "container6" {
+    resource = "lb1"
+    ports = [80, 443]
+    environment = {
+        "ENV" = "production",
+        "LOAD_BALANCER_MODE" = "http-https"
+    }
+}
+
+# Define group containers for the servers
+group "server-containers" {
+    containers = ["container1", "container2", "container3"]
+}
+
+# Deploy actions
+deploy "server-containers" {
+    strategy = "rolling"
+}
+
+deploy "container4" {
+    strategy = "rolling"
+}
+
+deploy "container5" {
+    strategy = "blue-green"
+}
+
+deploy "container6" {
+    strategy = "rolling"
+}
