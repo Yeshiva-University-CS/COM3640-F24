@@ -61,7 +61,7 @@ container "container1" {
     resource = "server1"
     ports = [80, 443]
     environment = {
-        "ENV" = "production",
+        "ENV" = "production"
         "DEBUG" = "false"
     }
 }
@@ -70,7 +70,7 @@ container "container2" {
     resource = "server2"
     ports = [80, 443]
     environment = {
-        "ENV" = "production",
+        "ENV" = "production"
         "DEBUG" = "false"
     }
 }
@@ -79,7 +79,7 @@ container "container3" {
     resource = "server3"
     ports = [80, 443]
     environment = {
-        "ENV" = "production",
+        "ENV" = "production"
         "DEBUG" = "false"
     }
 }
@@ -105,7 +105,7 @@ container "container6" {
     resource = "lb1"
     ports = [80, 443]
     environment = {
-        "ENV" = "production",
+        "ENV" = "production"
         "LOAD_BALANCER_MODE" = "http-https"
     }
 }
