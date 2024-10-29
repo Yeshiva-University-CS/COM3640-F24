@@ -6,7 +6,7 @@ package edu.yu.pl;
  * This exception is used to signal errors that are caught during the static analysis phase,
  * such as type mismatches, invalid references, or rule violations.
  */
-public class StaticSemanticException extends Exception {
+public class StaticSemanticException extends RuntimeException {
 
     /**
      * Constructs a new StaticSemanticException with the specified detail message.
