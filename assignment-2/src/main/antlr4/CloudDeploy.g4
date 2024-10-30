@@ -4,7 +4,7 @@ grammar CloudDeploy;
 package antlr4;
 }
 
-deployment: network ;                              
+deployment: network EOF;
 
 /* network */
 
@@ -16,7 +16,7 @@ subnet: 'subnet' name=STRING '{' cidrBlock '}' ;
 
 
 /* Lexer rules */
-
+ID : [a-zA-Z_] [a-zA-Z0-9_]* ;
 STRING : '"' .*? '"' ;  // String literals in double quotes: "example"
 INTEGER: [0-9]+ ;
 

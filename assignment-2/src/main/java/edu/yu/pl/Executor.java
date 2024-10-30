@@ -6,6 +6,11 @@ import edu.yu.pl.DataModel.Network;
 
 
 public class Executor extends CloudDeployBaseVisitor<Object> {
+    @Override
+    public String visitDeployment(CloudDeployParser.DeploymentContext ctx) {
+        super.visitDeployment(ctx);
+        return "*** Execution completed ***";
+    }
 
     @Override
     public Network visitNetwork(CloudDeployParser.NetworkContext ctx) {

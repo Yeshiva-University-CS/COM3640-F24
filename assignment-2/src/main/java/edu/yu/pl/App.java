@@ -25,10 +25,10 @@ public class App {
         }
 
         String sourceFileName = args[0];
-        
+
         CharStream chars = getCharStream(sourceFileName);
         if (chars == null) {
-            logger.error("Source file error: " + sourceFileName);
+            logger.error("Source file error: {}", sourceFileName);
             System.exit(-1);
         }
 
@@ -41,17 +41,20 @@ public class App {
         // to create a parse tree.
         var parser = new CloudDeployParser(tokens);
         ParseTree tree = parser.deployment();
+        logger.info("\n{} parsing errors", parser.getNumberOfSyntaxErrors());
 
-        // Visit and Print
-        // logger.info("\nVisitation:");
-        // var visitor = new VisitAndPrint(false);
-        // visitor.visit(tree);
-
-        // Execution
-        logger.info("\nExecution:");
-        var executor = new Executor();
-        var retval = executor.visit(tree);
-        logger.info(retval);
+        if (parser.getNumberOfSyntaxErrors() == 0) {
+            // Execution
+            logger.info("\nExecution:");
+            var executor = new Executor();
+            try {
+                var retVal = executor.visit(tree);
+                logger.info(retVal);
+            }
+            catch (Exception e) {
+                logger.error("{} - {}", e.getClass().getSimpleName(), e.getMessage());
+            }
+        }
     }
 
     public static CharStream getCharStream(String sourceFileName) {
