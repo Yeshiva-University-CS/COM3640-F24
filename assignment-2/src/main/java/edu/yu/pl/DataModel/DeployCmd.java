@@ -27,7 +27,7 @@ public class DeployCmd extends Command {
     public void execute() {
         System.out.println("Executing deployment for container: " + container.getName() +
                 " with strategy: " + strategy);
-        // Add actual container deployment logic here
+        container.deploy();
     }
 
     /**

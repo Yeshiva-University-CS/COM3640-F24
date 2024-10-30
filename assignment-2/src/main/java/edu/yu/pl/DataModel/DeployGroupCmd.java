@@ -27,7 +27,7 @@ public class DeployGroupCmd extends Command {
     public void execute() {
         System.out.println("Executing deployment for container group: " + containerGroup.getGroupName() +
                 " with strategy: " + strategy);
-        // Add actual container group deployment logic here
+        containerGroup.deploy();
     }
 
     /**
